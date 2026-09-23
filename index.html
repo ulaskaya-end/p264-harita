@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Malatya 458"><meta name="theme-color" content="#1F3864"><title>P264 Konut Haritası v5.0 · 21.09.2026 18:15</title>
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Malatya 458"><meta name="theme-color" content="#1F3864"><title>P264 Konut Haritası v5.2 · 23.09.2026 15:53</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style>
 html,body{margin:0;height:100%;font-family:Arial,Helvetica,sans-serif;font-size:13px}
@@ -51,7 +51,7 @@ h3{margin:10px 0 6px;color:#1F3864;font-size:14px;border-bottom:2px solid #1F386
  .cols{display:flex;gap:2mm} .cols>div{flex:1}
 }
 </style></head><body>
-<div id="top"><b>P264 Konut Haritası</b> <span style="background:#fff;color:#1F3864;padding:2px 8px;border-radius:4px;font-weight:bold">v5.0 · 21.09.2026 18:15</span>
+<div id="top"><b>P264 Konut Haritası</b> <span style="background:#fff;color:#1F3864;padding:2px 8px;border-radius:4px;font-weight:bold">v5.2 · 23.09.2026 15:53</span>
  <span class="dsk">Renk modu: <select id="mode" onchange="redraw()"><option value="muh">Sorumlu mühendis</option><option value="d">Kazı klası durumu</option><option value="pct">İlerleme %</option><option value="uyum">Etüd–tutanak uyumu</option><option value="foto">Fotoğraf var/yok</option></select></span>
  <label class="dsk"><input type="checkbox" id="lbls" checked onchange="redraw()"> Etiketler</label>
  <label class="dsk"><input type="checkbox" id="zones" checked onchange="redraw()"> Bölge sınırları</label>
@@ -70,11 +70,11 @@ h3{margin:10px 0 6px;color:#1F3864;font-size:14px;border-bottom:2px solid #1F386
  <h3 id="lgt">Lejant</h3><div class="lg" id="legend"></div>
  <h3>Konut listesi <span style="font-weight:normal;font-size:11px" id="lcount"></span></h3>
  <div id="list"></div>
- <p style="font-size:10px;color:#666">Bina çokgenleri harita ekibinin köşe koordinatlarından (ITRF96/TM39) çizilmiştir. Kazı klası durumu: Malatya_P264_Kazi_Klasi_Durum_Listesi.xlsx (15.09.2026). Mühendis/ilerleme: Konut_Takip_Veri_Girisi.xlsx. Güncelleme: v5.0 · 21.09.2026 18:15. Altlık: Esri World Imagery.</p>
+ <p style="font-size:10px;color:#666">Bina çokgenleri harita ekibinin köşe koordinatlarından (ITRF96/TM39) çizilmiştir. Kazı klası durumu: Malatya_P264_Kazi_Klasi_Durum_Listesi.xlsx (15.09.2026). Mühendis/ilerleme: Konut_Takip_Veri_Girisi.xlsx. Güncelleme: v5.2 · 23.09.2026 15:53. Altlık: Esri World Imagery.</p>
 </div>
 <div id="modal" onclick="if(event.target.id==='modal')modalClose()"><div class="box" id="mbox"></div></div>
 <div id="lb" onclick="if(event.target.id==='lb')lbClose()"><span class="x" onclick="lbClose()">×</span><span class="nav" style="left:0" onclick="lbNav(-1)">‹</span><img id="lbimg"><div class="cap" id="lbcap"></div><span class="nav" style="right:0" onclick="lbNav(1)">›</span></div>
-<div id="print"><div id="pmap"></div><div id="pside"><h1>MALATYA YEŞİLYURT 42. PAKET 458 KONUT (P264)</h1><h2 id="ph2"></h2><div style="font-size:9pt;color:#666;margin-bottom:4mm">Gönüç İnşaat A.Ş. · Güncelleme v5.0 · 21.09.2026 18:15 · 393 bina · Altlık: Esri World Imagery</div><div id="plegend" class="lg" style="border:1px solid #999;padding:3mm;margin-bottom:4mm"></div><div class="cols" id="ptbl"></div></div></div>
+<div id="print"><div id="pmap"></div><div id="pside"><h1>MALATYA YEŞİLYURT 42. PAKET 458 KONUT (P264)</h1><h2 id="ph2"></h2><div style="font-size:9pt;color:#666;margin-bottom:4mm">Gönüç İnşaat A.Ş. · Güncelleme v5.2 · 23.09.2026 15:53 · 393 bina · Altlık: Esri World Imagery</div><div id="plegend" class="lg" style="border:1px solid #999;padding:3mm;margin-bottom:4mm"></div><div class="cols" id="ptbl"></div></div></div>
 <script>
 const SB_URL='https://mpihgfwcwijhnmscujht.supabase.co', SB_KEY='sb_publishable_HX7rUlGJijeaOVPV1q126Q_xmiXDLFz';
 const STAGES=[['Kazı',5],['Temel',15],['Subasman',25],['Kaba yapı',50],['Çatı',60],['İnce işler',85],['Teslim',100]];
@@ -91,18 +91,20 @@ function toggleBase(){map.removeLayer(map._cur); map._cur=(map._cur===map._sat?m
 let layer=L.layerGroup().addTo(map), zlayer=L.layerGroup().addTo(map);
 const RECENT=new Date(); RECENT.setDate(RECENT.getDate()-15);
 function dparse(s){const m=/^(\d{2})\.(\d{2})\.(\d{4})$/.exec(s||''); return m?new Date(+m[3],+m[2]-1,+m[1]):null;}
-function isRecent(p){return !!(p.ph&&p.ph.some(x=>!x.g&&dparse(x.d)&&dparse(x.d)>=RECENT));}
+function isRecent(p){return !!(p.ph&&p.ph.some(x=>!x.g&&!x.arch&&dparse(x.d)&&dparse(x.d)>=RECENT));}
 let LB={list:[],i:0};
 function lbOpen(no,i){const p=pts.find(x=>x.no===no); LB={list:p.ph,i:i,no:no}; lbShow(); document.getElementById('lb').style.display='flex';}
 function lbShow(){const it=LB.list[LB.i]; document.getElementById('lbimg').src=it.f; document.getElementById('lbcap').textContent=`Bina ${LB.no} · ${it.d||''} · ${LB.i+1}/${LB.list.length} · ${it.src||''}`;}
 function lbNav(d){LB.i=(LB.i+d+LB.list.length)%LB.list.length; lbShow();}
 function lbClose(){document.getElementById('lb').style.display='none';}
 document.addEventListener('keydown',e=>{if(document.getElementById('lb').style.display==='flex'){if(e.key==='Escape')lbClose(); if(e.key==='ArrowRight')lbNav(1); if(e.key==='ArrowLeft')lbNav(-1);}});
-function thumbs(p){if(!p.ph||!p.ph.length) return ''; const own=p.ph.filter(x=>!x.g), gen=p.ph.filter(x=>x.g); const dates=[...new Set(own.map(x=>x.d))]; let h='';
- if(own.length) h+=`<div style="margin-top:6px"><b>Fotoğraflar (${own.length})</b> <small>${dates.join(' · ')}</small></div><div class="thumbs">`+own.map(x=>`<img src="${x.f}" loading="lazy" title="${x.d}" onclick="lbOpen(${p.no},${p.ph.indexOf(x)})">`).join('')+'</div>';
+const ARCH={};
+function thumbs(p){if(!p.ph||!p.ph.length) return ''; const live=p.ph.filter(x=>x.live&&!x.arch), arc=p.ph.filter(x=>!x.g&&(x.arch||!x.live)), gen=p.ph.filter(x=>x.g); let h='';
+ const show=ARCH[p.no]?live.concat(arc):live; const dates=[...new Set(show.map(x=>x.d))];
+ if(live.length||arc.length) h+=`<div style="margin-top:6px"><b>Fotoğraflar (${live.length})</b> <small>${dates.slice(0,4).join(' · ')}</small> ${arc.length?`<a href="#" style="font-size:12px" onclick="ARCH[${p.no}]=!ARCH[${p.no}];map.closePopup();go(${p.no});return false">${ARCH[p.no]?'arşivi gizle':'arşiv ('+arc.length+')'}</a>`:''}</div><div class="thumbs">`+show.map(x=>`<img src="${x.f}" loading="lazy" title="${x.d}" style="${x.arch||!x.live?'opacity:.6':''}" onclick="lbOpen(${p.no},${p.ph.indexOf(x)})">`).join('')+'</div>';
  if(gen.length) h+=`<div style="margin-top:6px"><b>Köy geneli (${gen.length})</b></div><div class="thumbs">`+gen.map(x=>`<img src="${x.f}" loading="lazy" title="${x.d}" onclick="lbOpen(${p.no},${p.ph.indexOf(x)})">`).join('')+'</div>';
  return h;}
-function popup(p){return `<b>${p.no} – ${p.m} ${p.ap}</b><br>Sorumlu mühendis: <b>${p.muh||'-'}</b><br>Taşeron: ${p.t||'-'} · Tip: ${p.tip||'-'}<br>Yer teslim: ${p.yt||'-'}<br>Kazı klası: ${p.dl}<br>Tutanaktaki klas: <b>${p.klas||'-'}</b><br>Etüd: ${p.kaya!=null?'<b>'+p.kaya.toFixed(2)+' m\'den itibaren kaya</b> – '+p.kayat:'etüd raporu elimizde yok'}${p.zemin?'<br>Üst zemin: '+p.zemin:''}${p.uyum?'<br><span style="color:'+uyumCol(p)+';font-weight:bold">'+p.uyum+'</span>':''}<br>İlerleme: <b>${p.pct==null?'-':p.pct+'%'}</b> ${p.stage?'· '+p.stage:''} ${p.upd?'('+p.upd+')':''}${p.recs&&p.recs.length?'<div style="max-height:90px;overflow:auto">'+p.recs.slice(0,5).map(r=>`<div class="rec">${r.created_at.slice(0,10).split('-').reverse().join('.')} · ${r.stage} %${r.pct} · ${(r.user_email||'').split('@')[0]}${r.note?' · '+r.note:''}</div>`).join('')+'</div>':''}<div style="margin-top:6px"><button class="btn p" style="padding:6px 10px;font-size:13px;background:#1F3864;color:#fff;border:0;border-radius:6px" onclick="recForm(${p.no})">＋ Kayıt / Fotoğraf</button></div><br>${p.note||''}<br><i style="color:#888">${p.src}</i>`+thumbs(p);}
+function popup(p){return `<b>${p.no} – ${p.m} ${p.ap}</b><br>Sorumlu mühendis: <b>${p.muh||'-'}</b><br>Taşeron: ${p.t||'-'} · Tip: ${p.tip||'-'}<br>Yer teslim: ${p.yt||'-'}<br>Kazı klası: ${p.dl}<br>Tutanaktaki klas: <b>${p.klas||'-'}</b><br>Etüd: ${p.kaya!=null?'<b>'+p.kaya.toFixed(2)+' m\'den itibaren kaya</b> – '+p.kayat:'etüd raporu elimizde yok'}${p.zemin?'<br>Üst zemin: '+p.zemin:''}${p.uyum?'<br><span style="color:'+uyumCol(p)+';font-weight:bold">'+p.uyum+'</span>':''}<br>İlerleme: <b>${p.pct==null?'-':p.pct+'%'}</b> ${p.stage?'· '+p.stage:''} ${p.upd?'('+p.upd+')':''}${p.recs&&p.recs.length?'<div style="max-height:90px;overflow:auto">'+p.recs.slice(0,5).map(r=>`<div class="rec">${r.created_at.slice(0,10).split('-').reverse().join('.')} · ${r.stage} %${r.pct} · ${r.muhendis||''}${r.note?' · '+r.note:''}</div>`).join('')+'</div>':''}<div style="margin-top:6px"><button class="btn p" style="padding:6px 10px;font-size:13px;background:#1F3864;color:#fff;border:0;border-radius:6px" onclick="recForm(${p.no})">＋ Kayıt / Fotoğraf</button></div><br>${p.note||''}<br><i style="color:#888">${p.src}</i>`+thumbs(p);}
 function drawOn(m,L1,Z1,withLabels){L1.clearLayers(); Z1.clearLayers(); const z=m.getZoom();
  if(z<13 && m===map){ const groups={}; const far=z<11; pts.forEach(p=>{ if((p.muh&&!on[p.muh])||(mahFilter&&p.m!==mahFilter))return; const k=far?(p.muh+'|'+(['MOLLAKASIM','HAMİDİYE','HIROĞLU','GÜNDÜZBEY','YAKINCA','BOSTANBAŞI','KONAK'].includes(p.m)?'YEŞİLYURT':p.m)):(p.muh+'|'+p.m); (groups[k]=groups[k]||[]).push(p);});
   if(far){ const ye=Object.keys(groups).filter(k=>k.endsWith('|YEŞİLYURT')); if(ye.length>1){ const all=[].concat(...ye.map(k=>groups[k])); ye.forEach(k=>delete groups[k]); groups['Yeşilyurt (4 mühendis)|YEŞİLYURT']=all; } }
@@ -140,26 +142,23 @@ window.addEventListener('resize',layout); window.addEventListener('load',()=>set
 map.on('zoomend',redraw); redraw();
 // ---------- SAHA (Supabase) ----------
 const H=()=>({'apikey':SB_KEY,'Content-Type':'application/json'});
-let SESSION=JSON.parse(localStorage.getItem('sb_session')||'null');
-function authH(){return SESSION?{...H(),'Authorization':'Bearer '+SESSION.access_token}:H();}
-async function refreshSession(){ if(!SESSION||!SESSION.refresh_token)return false; try{const r=await fetch(SB_URL+'/auth/v1/token?grant_type=refresh_token',{method:'POST',headers:H(),body:JSON.stringify({refresh_token:SESSION.refresh_token})}); if(!r.ok){SESSION=null;localStorage.removeItem('sb_session');return false;} SESSION=await r.json(); localStorage.setItem('sb_session',JSON.stringify(SESSION)); return true;}catch(e){return false;} }
-function whoTxt(){document.getElementById('who').textContent=SESSION?('👤 '+(localStorage.getItem('sb_name')||SESSION.user.email)):'';}
+let SESSION=null; function authH(){return H();}
+function myName(){return localStorage.getItem('sb_name')||'';}
+function whoTxt(){document.getElementById('who').textContent=myName()?('👤 '+myName()):'';}
 async function loadLive(){ try{
-  const [u,ph]=await Promise.all([fetch(SB_URL+'/rest/v1/updates?select=no,stage,pct,note,user_email,created_at&order=created_at.desc',{headers:H()}).then(r=>r.json()),fetch(SB_URL+'/rest/v1/photos?select=no,path,taken_at,user_email,created_at&order=created_at.asc',{headers:H()}).then(r=>r.json())]);
+  const [u,ph]=await Promise.all([fetch(SB_URL+'/rest/v1/updates?select=no,stage,pct,note,muhendis,user_email,created_at&order=created_at.desc',{headers:H()}).then(r=>r.json()),fetch(SB_URL+'/rest/v1/photos?select=no,path,taken_at,muhendis,archived,created_at&order=created_at.asc',{headers:H()}).then(r=>r.json())]);
   if(!Array.isArray(u)||!Array.isArray(ph)) return;
   const seen={}; pts.forEach(p=>{p.recs=[];p.ph=(p.ph||[]).filter(x=>!x.live);});
-  u.forEach(r=>{const p=pts.find(x=>x.no===r.no); if(!p)return; p.recs.push(r); if(!seen[r.no]){seen[r.no]=1; p.pct=r.pct; p.stage=r.stage; p.upd=r.created_at.slice(0,10).split('-').reverse().join('.'); p.muhUpd=r.user_email;}});
-  ph.forEach(r=>{const p=pts.find(x=>x.no===r.no); if(!p)return; const d=(r.taken_at||r.created_at.slice(0,10)).split('-').reverse().join('.'); p.ph.push({f:SB_URL+'/storage/v1/object/public/fotolar/'+r.path,d:d,src:'Saha · '+(r.user_email||''),g:false,live:true});});
+  u.forEach(r=>{const p=pts.find(x=>x.no===r.no); if(!p)return; p.recs.push(r); if(!seen[r.no]){seen[r.no]=1; p.pct=r.pct; p.stage=r.stage; p.upd=r.created_at.slice(0,10).split('-').reverse().join('.'); p.muhUpd=r.muhendis;}});
+  ph.forEach(r=>{const p=pts.find(x=>x.no===r.no); if(!p)return; const d=(r.taken_at||r.created_at.slice(0,10)).split('-').reverse().join('.'); p.ph.push({f:SB_URL+'/storage/v1/object/public/fotolar/'+r.path,d:d,src:'Saha · '+(r.muhendis||''),g:false,live:true,arch:!!r.archived});});
   redraw(); }catch(e){console.warn('canlı veri alınamadı',e);} }
 loadLive(); whoTxt(); setInterval(loadLive,120000);
 function modalOpen(html){document.getElementById('mbox').innerHTML=html; document.getElementById('modal').style.display='flex';}
 function modalClose(){document.getElementById('modal').style.display='none';}
-function sahaToggle(){ if(!SESSION) return loginForm(); modalOpen(`<h3>Saha modu</h3><div>Giriş: <b>${SESSION.user.email}</b><br>Ad: <b>${localStorage.getItem('sb_name')||'-'}</b></div><p>Haritada bir eve dokunun, açılan pencerede <b>＋ Kayıt / Fotoğraf</b> düğmesine basın.</p><div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn g" onclick="logout()">Çıkış</button><button class="btn p" onclick="modalClose()">Tamam</button></div>`); }
-function loginForm(msg){ modalOpen(`<h3>Saha girişi</h3>${msg?'<div style="color:#c62828">'+msg+'</div>':''}<label>E-posta</label><input id="le" type="email" autocomplete="username"><label>Şifre</label><input id="lp" type="password" autocomplete="current-password"><label>Adınız (harita için)</label><select id="ln">${engs.map(e=>`<option ${localStorage.getItem('sb_name')===e?'selected':''}>${e}</option>`).join('')}</select><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px"><button class="btn g" onclick="modalClose()">Vazgeç</button><button class="btn p" onclick="login()">Giriş</button></div>`); }
-async function login(){ const e=document.getElementById('le').value.trim(), p=document.getElementById('lp').value, n=document.getElementById('ln').value;
- try{ const r=await fetch(SB_URL+'/auth/v1/token?grant_type=password',{method:'POST',headers:H(),body:JSON.stringify({email:e,password:p})}); const j=await r.json(); if(!r.ok) return loginForm(j.error_description||j.msg||'Giriş başarısız'); SESSION=j; localStorage.setItem('sb_session',JSON.stringify(j)); localStorage.setItem('sb_name',n); whoTxt(); modalClose(); if(on[n]!==undefined){jump('muh',n);} }catch(err){loginForm('Bağlantı hatası: '+err);} }
-function logout(){SESSION=null; localStorage.removeItem('sb_session'); whoTxt(); modalClose();}
-function recForm(no){ if(!SESSION) return loginForm(); const p=pts.find(x=>x.no===no); const cur=p.stage||''; 
+function sahaToggle(){ loginForm(); }
+function loginForm(msg){ modalOpen(`<h3>Saha – kimsiniz?</h3>${msg?'<div style="color:#c62828">'+msg+'</div>':''}<div style="display:flex;flex-direction:column;gap:6px">${engs.map(e=>`<button class="btn ${myName()===e?'p':'g'}" style="text-align:left" onclick="pick('${e}')"><span class="sw" style="display:inline-block;width:12px;height:12px;background:${PAL[e]};margin-right:8px;vertical-align:middle"></span>${e}</button>`).join('')}</div><p style="font-size:12px;color:#666">Adınıza dokunun; harita sizin evlerinize iner. Bir eve dokunup <b>＋ Kayıt / Fotoğraf</b> ile ilerleme ve fotoğraf girersiniz.</p>`); }
+function pick(n){localStorage.setItem('sb_name',n); whoTxt(); modalClose(); if(on[n]!==undefined) jump('muh',n); else showAll();}
+function recForm(no){ if(!myName()) return loginForm('Önce adınızı seçin'); const p=pts.find(x=>x.no===no); const cur=p.stage||''; 
  modalOpen(`<h3>${p.no} – ${p.m} ${p.ap}</h3><div style="font-size:12px;color:#555">Taşeron ${p.t||'-'} · Son kayıt: ${p.stage?p.stage+' %'+p.pct+' ('+p.upd+')':'yok'}</div>
  <label>İmalat aşaması</label><select id="rs" onchange="document.getElementById('rp').value=STAGES.find(s=>s[0]===this.value)[1]">${STAGES.map(s=>`<option ${cur===s[0]?'selected':''}>${s[0]}</option>`).join('')}</select>
  <label>İlerleme %</label><input id="rp" type="number" min="0" max="100" value="${p.pct!=null?p.pct:(STAGES.find(s=>s[0]===cur)||STAGES[0])[1]}">
@@ -168,17 +167,15 @@ function recForm(no){ if(!SESSION) return loginForm(); const p=pts.find(x=>x.no=
  <div id="rstat" style="font-size:12px;color:#1F3864;margin-top:6px"></div>
  <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px"><button class="btn g" onclick="modalClose()">Vazgeç</button><button class="btn p" id="rsave" onclick="saveRec(${no})">Kaydet</button></div>`); }
 function prevImgs(inp){const d=document.getElementById('rprev'); d.innerHTML=''; [...inp.files].slice(0,10).forEach(f=>{const i=document.createElement('img'); i.src=URL.createObjectURL(f); d.appendChild(i);});}
-function shrink(file){return new Promise(res=>{const img=new Image(); img.onload=()=>{const s=Math.min(1,1400/Math.max(img.width,img.height)); const c=document.createElement('canvas'); c.width=Math.round(img.width*s); c.height=Math.round(img.height*s); c.getContext('2d').drawImage(img,0,0,c.width,c.height); c.toBlob(b=>res(b),'image/jpeg',0.8);}; img.src=URL.createObjectURL(file);});}
+function shrink(file){return new Promise(res=>{const img=new Image(); img.onload=()=>{const s=Math.min(1,1200/Math.max(img.width,img.height)); const c=document.createElement('canvas'); c.width=Math.round(img.width*s); c.height=Math.round(img.height*s); c.getContext('2d').drawImage(img,0,0,c.width,c.height); c.toBlob(b=>res(b),'image/jpeg',0.75);}; img.src=URL.createObjectURL(file);});}
 async function saveRec(no){ const st=document.getElementById('rstat'), btn=document.getElementById('rsave'); btn.disabled=true;
  const stage=document.getElementById('rs').value, pct=+document.getElementById('rp').value, note=document.getElementById('rn').value, files=[...document.getElementById('rf').files].slice(0,10);
- try{ if(SESSION.expires_at && Date.now()/1000>SESSION.expires_at-60) await refreshSession();
-  let r=await fetch(SB_URL+'/rest/v1/updates',{method:'POST',headers:{...authH(),'Prefer':'return=minimal'},body:JSON.stringify({no:no,stage:stage,pct:pct,note:note})});
-  if(r.status===401){ if(await refreshSession()) r=await fetch(SB_URL+'/rest/v1/updates',{method:'POST',headers:{...authH(),'Prefer':'return=minimal'},body:JSON.stringify({no:no,stage:stage,pct:pct,note:note})}); }
+ try{ let r=await fetch(SB_URL+'/rest/v1/updates',{method:'POST',headers:{...authH(),'Prefer':'return=minimal'},body:JSON.stringify({no:no,stage:stage,pct:pct,note:note,muhendis:localStorage.getItem('sb_name')||''})});
   if(!r.ok) throw new Error('Kayıt yazılamadı: '+(await r.text()));
   const today=new Date().toISOString().slice(0,10); let k=0;
   for(const f of files){ k++; st.textContent=`Fotoğraf ${k}/${files.length} yükleniyor…`; const blob=await shrink(f); const path=`${no}/${Date.now()}_${k}.jpg`;
-   const up=await fetch(SB_URL+'/storage/v1/object/fotolar/'+path,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SESSION.access_token,'Content-Type':'image/jpeg','x-upsert':'true'},body:blob}); if(!up.ok) throw new Error('Fotoğraf yüklenemedi: '+(await up.text()));
-   const ins=await fetch(SB_URL+'/rest/v1/photos',{method:'POST',headers:{...authH(),'Prefer':'return=minimal'},body:JSON.stringify({no:no,path:path,taken_at:today,note:note})}); if(!ins.ok) throw new Error('Fotoğraf kaydı yazılamadı'); }
+   const up=await fetch(SB_URL+'/storage/v1/object/fotolar/'+path,{method:'POST',headers:{'apikey':SB_KEY,'Content-Type':'image/jpeg','x-upsert':'true'},body:blob}); if(!up.ok) throw new Error('Fotoğraf yüklenemedi: '+(await up.text()));
+   const ins=await fetch(SB_URL+'/rest/v1/photos',{method:'POST',headers:{...authH(),'Prefer':'return=minimal'},body:JSON.stringify({no:no,path:path,taken_at:today,note:note,muhendis:localStorage.getItem('sb_name')||''})}); if(!ins.ok) throw new Error('Fotoğraf kaydı yazılamadı'); }
   st.textContent='Kaydedildi ✓'; await loadLive(); setTimeout(modalClose,700); }catch(e){ st.style.color='#c62828'; st.textContent=e.message; btn.disabled=false; } }
 function jump(kind,val){const g=pts.filter(p=>kind==='muh'?p.muh===val:p.m===val); if(!g.length)return; document.getElementById('side').classList.remove('open');
  if(kind==='muh'){engs.forEach(e=>on[e]=(e===val)); mahFilter=null;} else {engs.forEach(e=>on[e]=true); mahFilter=val;}
